@@ -123,6 +123,6 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'cindydev1512@gmail.com'
-EMAIL_HOST_PASSWORD = 'wilmarys80$29='
+EMAIL_HOST_USER = 'sigead_noreply@rayroasociadossac.com'
+EMAIL_HOST_PASSWORD = 'qu5ZrU%J'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
