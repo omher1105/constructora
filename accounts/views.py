@@ -9,7 +9,7 @@ from django.views.generic import View
 from django.views import generic
 from django.contrib.auth import logout 
 from django.shortcuts import redirect
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 class HomeView(generic.TemplateView):
     template_name = "accounts-home.html"

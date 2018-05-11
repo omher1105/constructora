@@ -1,0 +1,15 @@
+#Requirements
+
+adium-theme-ubuntu==0.3.4
+Django==1.8.7
+django-admin-view-permission==1.6
+et-xmlfile==1.0.1
+iotop==0.6
+jdcal==1.4
+openpyxl==2.5.3
+pycurl==7.43.0
+PyMySQL==0.8.0
+#python-apt==1.1.0b1+ubuntu0.16.4.1
+pytz==2014.10
+sqlparse==0.1.18
+unity-lens-photos==1.0
