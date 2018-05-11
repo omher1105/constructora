@@ -226,17 +226,19 @@ class Materiales(models.Model):
     id_materiales = models.AutoField(primary_key=True)
     vc_codigo = models.CharField(max_length=10, blank=True, null=True)
     id_codEstado = models.ForeignKey('GeneralDetalle', db_column='id_codEstado',
-                                     related_name='id_codEstado',on_delete=False)  # Field name made lowercase.
+                                     related_name='id_codEstado', on_delete=False)  # Field name made lowercase.
     id_codTipoGasto = models.ForeignKey('GeneralDetalle', db_column='id_codTipoGasto',
-                                        related_name='id_codTipoGasto',on_delete=False)  # Field name made lowercase.
+                                        related_name='id_codTipoGasto', on_delete=False)  # Field name made lowercase.
     id_codFamilia = models.ForeignKey('GeneralDetalle', db_column='id_codFamilia',
-                                      related_name='id_codFamilia',on_delete=False)  # Field name made lowercase.
+                                      related_name='id_codFamilia', on_delete=False)  # Field name made lowercase.
     id_codClasificacion = models.ForeignKey('GeneralDetalle', db_column='id_codClasificacion', blank=True, null=True,
-                                            related_name='id_codClasificacion',on_delete=False)  # Field name made lowercase.
+                                            related_name='id_codClasificacion',
+                                            on_delete=False)  # Field name made lowercase.
     vc_descripcion = models.CharField(max_length=200)
     id_codColor = models.ForeignKey('GeneralDetalle', db_column='id_codColor', blank=True, null=True,
-                                    related_name='id_codColor',on_delete=False)  # Field name made lowercase.
-    id_unidadMedida = models.ForeignKey('UnidadMedida', db_column='id_unidadMedida',on_delete=False)  # Field name made lowercase.
+                                    related_name='id_codColor', on_delete=False)  # Field name made lowercase.
+    id_unidadMedida = models.ForeignKey('UnidadMedida', db_column='id_unidadMedida',
+                                        on_delete=False)  # Field name made lowercase.
     nu_valor = models.DecimalField(max_digits=9, decimal_places=2)
     nu_stockMinimo = models.DecimalField(db_column='nu_stockMinimo', max_digits=9, decimal_places=2, blank=True,
                                          null=True)  # Field name made lowercase.
@@ -252,7 +254,7 @@ class Materiales(models.Model):
     vc_ipEdita = models.CharField(db_column='vc_ipEdita', max_length=20, blank=True,
                                   null=True)  # Field name made lowercase.
     id_codSituacion = models.ForeignKey('GeneralDetalle', db_column='id_codSituacion',
-                                        related_name='id_codSituacion',on_delete=False)  # Field name made lowercase.
+                                        related_name='id_codSituacion', on_delete=False)  # Field name made lowercase.
     nu_stockActual = models.DecimalField(db_column='nu_stockActual', max_digits=9, decimal_places=2, blank=True,
                                          null=True)  # Field name made lowercase.
     vc_numNotificacion = models.CharField(db_column='vc_numNotificacion', max_length=10, blank=True,
@@ -277,7 +279,7 @@ class Proveedor(models.Model):
     vc_codestado = models.CharField(db_column='vc_codEstado', max_length=3)  # Field name made lowercase.
     vc_rucproveedor = models.CharField(db_column='vc_rucProveedor', max_length=11)  # Field name made lowercase.
     vc_razonsocial = models.CharField(db_column='vc_razonSocial', max_length=150)  # Field name made lowercase.
-    id_ubigeo = models.ForeignKey('Ubigeo', db_column='id_ubigeo', blank=True, null=True,on_delete=False)
+    id_ubigeo = models.ForeignKey('Ubigeo', db_column='id_ubigeo', blank=True, null=True, on_delete=False)
     vc_direccion = models.CharField(max_length=150, blank=True, null=True)
     vc_contacto = models.CharField(max_length=100, blank=True, null=True)
     vc_telfcontacto = models.CharField(db_column='vc_telfContacto', max_length=10, blank=True,
@@ -302,15 +304,16 @@ class Proveedor(models.Model):
 
 class Proyectos(models.Model):
     id_proyecto = models.AutoField(primary_key=True)
-    vc_codEstado = models.ForeignKey('GeneralDetalle', db_column='vc_codEstado', related_name='vc_codEstado_pro',on_delete=False)
+    vc_codEstado = models.ForeignKey('GeneralDetalle', db_column='vc_codEstado', related_name='vc_codEstado_pro',
+                                     on_delete=False)
     vc_nombreProyecto = models.CharField(db_column='vc_nombreProyecto', max_length=120)  # Field name made lowercase.
-    id_ubigeo = models.ForeignKey('Ubigeo', db_column='id_ubigeo', blank=True, null=True,on_delete=False)
+    id_ubigeo = models.ForeignKey('Ubigeo', db_column='id_ubigeo', blank=True, null=True, on_delete=False)
     vc_direccion = models.CharField(max_length=200, blank=True, null=True)
     dt_fecAprobacion = models.DateField(db_column='dt_fecAprobacion', blank=True,
                                         null=True)  # Field name made lowercase.
     dt_fecInicio = models.DateField(db_column='dt_fecInicio', blank=True, null=True)  # Field name made lowercase.
     dt_fecCierre = models.DateField(db_column='dt_fecCierre', blank=True, null=True)  # Field name made lowercase.
-    id_colaborador = models.ForeignKey(Colaborador, db_column='id_colaborador', blank=True, null=True,on_delete=False)
+    id_colaborador = models.ForeignKey(Colaborador, db_column='id_colaborador', blank=True, null=True, on_delete=False)
     vc_nomContacto = models.CharField(db_column='vc_nomContacto', max_length=120, blank=True,
                                       null=True)  # Field name made lowercase.
     vc_telfContacto = models.CharField(db_column='vc_telfContacto', max_length=10, blank=True,
@@ -325,7 +328,7 @@ class Proyectos(models.Model):
                                        null=True)  # Field name made lowercase.
     vc_ipedita = models.CharField(db_column='vc_ipEdita', max_length=20, blank=True,
                                   null=True)  # Field name made lowercase.
-    id_cliente = models.ForeignKey(Clientes, db_column='id_cliente',on_delete=False)
+    id_cliente = models.ForeignKey(Clientes, db_column='id_cliente', on_delete=False)
 
     class Meta:
         managed = False
